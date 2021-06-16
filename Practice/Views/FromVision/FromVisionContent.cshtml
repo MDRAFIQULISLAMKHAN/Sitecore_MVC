@@ -1,0 +1,11 @@
+﻿@model Practice.Models.Content
+<div class="section_head decor_mod limit_mod">
+    <h2 class="section_title offset_mod">
+        <span class="title_in">@Model.Title</span>@Model.SubTitle
+    </h2>
+    <div class="section_w_descr">
+        <div class="section_descr v1_mod sectionDescr height_v1_mod btnDescrControl" data-descr-id="0">
+            @Html.Raw(Model.TitleDescription)
+        </div>
+    </div>
+</div>

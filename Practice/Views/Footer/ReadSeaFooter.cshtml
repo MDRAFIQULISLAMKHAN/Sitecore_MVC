@@ -1,0 +1,52 @@
+﻿@using System.Collections
+@model Practice.Models.Footer
+
+<div class="footer_bg_wrap">
+    <div class="section_bg footerBg">
+        <img class="section_bg_img" loading="lazy" src="@Model.BackgroundImage" alt="background image" />
+    </div>
+</div>
+<div class="section_in">
+    <ul class="social_list footer_mod footerAnimEl">
+        <li class="social_item">
+            <a class="social_link footer_mod" href="https://www.facebook.com/TheRedSeaDevelopmentCompany/" target="_blank">
+                <svg class="icon icon-facebook social_mod">
+                    <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#facebook"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="social_item">
+            <a class="social_link footer_mod" href="https://www.linkedin.com/company/the-red-sea-development-company/" target="_blank">
+                <svg class="icon icon-linkedin social_mod">
+                    <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#linkedin"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="social_item">
+            <a class="social_link footer_mod" href="https://twitter.com/TheRedSeaGlobal" target="_blank">
+                <svg class="icon icon-twitter social_mod">
+                    <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#twitter"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="social_item">
+            <a class="social_link footer_mod" href="https://www.instagram.com/TheRedSeaDevelopmentCompany/" target="_blank">
+                <svg class="icon icon-instagram social_mod">
+                    <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#instagram"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="social_item">
+            <a class="social_link footer_mod" href="https://www.youtube.com/theredseadevelopmentcompany" target="_blank">
+                <svg class="icon icon-youtube social_mod">
+                    <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#youtube"></use>
+                </svg>
+            </a>
+        </li>
+    </ul><a class="footer_logo footerAnimEl" href="#"><img loading="lazy" class="logo_img" src="@Model.Logo" alt="logo" /></a>
+    <div class="footer_copyright footerAnimEl">@Model.CopyrightText</div>
+    <div class="footer_link_list footerAnimEl">
+        <div class="footer_link_item"> @Html.Raw(@Model.PrivacyPolicy) </div>
+        <div class="footer_link_item"> @Html.Raw(@Model.TermsandCondition) </div>
+    </div>
+</div>

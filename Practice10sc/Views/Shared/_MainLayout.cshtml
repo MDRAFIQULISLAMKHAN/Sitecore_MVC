@@ -1,0 +1,36 @@
+﻿@using Sitecore.Mvc
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+        <header>
+            @Html.Sitecore().Placeholder("header");
+        </header>
+
+        <section>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 box-section for-desktop">
+                <div class="row">
+                    @Html.Sitecore().Placeholder("body");
+                </div>
+            </div>
+
+
+
+        </section>
+
+        <footer>
+            @Html.Sitecore().Placeholder("footer");
+        </footer>
+
+</body>
+
+</html>

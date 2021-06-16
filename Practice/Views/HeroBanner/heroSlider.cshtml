@@ -1,0 +1,58 @@
+﻿@using System.Collections
+@model List<Practice.Models.HeroSliderModel>
+<section class="section hero_slider_mod heroSection sectionBgTrigger" id="section_1" data-num="1"
+         data-id-color="2">
+    <div class="hero_slider heroSlider home_page_mod">
+        
+        @foreach (var sliderItem in Model)
+        {
+
+            <div class="hero_slider_item">
+                <div class="hero_slider_w_img">
+                    @if (!string.IsNullOrEmpty(sliderItem.BackgroundVideo))
+                    {
+                        <video class="hero_slider_img" playsinline="playsinline" muted="muted" loop="loop" autoplay="autoplay">
+                            <source src="@sliderItem.BackgroundVideo" type="video/mp4"/>
+                        </video>
+                    }
+                    else
+                    {
+                        <img class="hero_slider_img" src="@sliderItem.BackgroundImage" loading="lazy" alt="image"/>
+                    }
+
+                </div>
+                <div class="section_in hero_slider_mod">
+                    <div class="hero_slider_content width_v1_mod">
+                        <div class="section_head decor_v1_mod">
+                            <div class="hero_slider_decor heroSliderContent"></div>
+                            <div class="hero_slider_content_title">
+                                <h2 class="section_title white_mod heroSliderItemTitle accent_mod">@sliderItem.Title</h2>
+                            </div>
+                            <div class="hero_slider_content_title">
+                                <h3 class="section_subtitle accent_mod heroSliderItemSubTitle">@sliderItem.Description</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                @if (sliderItem.BackgroundVideo != null)
+                {
+                    <div class="hero_slider_item_btn heroSliderContent">
+                      @Html.Raw(sliderItem.Button) 
+                    </div>
+                }
+
+            </div>
+
+        }
+
+    </div>
+    <div class="section_decor">
+        <svg class="section_decor_svg" preserveAspectRatio="xMidYMin slice"
+             id="afabe5c6-3f40-4025-97ac-75291d26e754" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 1922 78.7">
+            <path class="section_decor_svg_in" id="b033dd8e-2845-4cef-9762-39c514a1a88d" data-name="Контур 828"
+                  class="a2db1979-0127-4db7-ac0c-083cd14bface" d="M0,78.7V0S480,49.5,960.53,49.93,1922,0,1922,0V78.7" />
+        </svg>
+    </div>
+</section>

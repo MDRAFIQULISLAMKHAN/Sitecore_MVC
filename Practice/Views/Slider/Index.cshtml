@@ -1,0 +1,54 @@
+﻿@model List<Practice.Models.SliderModel> 
+@{ int count = 0;}
+<div class="section_in">
+    <div class="section_head decor_mod center_level_mod offset_mod fadeEl">
+        <h2 class="section_title">Designs</h2>
+    </div>
+    <div class="designs_w_nav fadeEl">
+        <div class="designs_nav_container">
+            <div class="designs_nav designsNavSlider">
+                @foreach (var item in Model)
+                {
+                    if (count == 0)
+                    {
+                        <div class="designs_nav_item"><a class="designs_nav_link designsNavLink active_state" href="#" data-slide-id="@count">@item.Title</a></div>
+                    }
+                    else
+                    {
+                        <div class="designs_nav_item"><a class="designs_nav_link designsNavLink" href="#" data-slide-id="@count">@item.Title</a></div>
+                    }
+                    count++;
+                }
+            </div>
+        </div>
+        <div class="designs_nav_btn prev_mod btnPrevDesignsSlide">
+            <svg class="icon icon-left current_mod">
+                <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#left"></use>
+            </svg>
+        </div>
+        <div class="designs_nav_btn next_mod btnNextDesignsSlide">
+            <svg class="icon icon-arrow-right current_mod">
+                <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#arrow-right"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="designs_slider designsSlider fadeEl">
+    
+
+    @foreach (var item in Model)
+    {
+        <div class="designs_slider_item">
+            <div class="designs_slider_item_w_img">
+                <img class="designs_slider_item_img"
+                     src="@item.Image" loading="lazy" alt="">
+            </div>
+            <div class="designs_slider_content">
+                <div class="section_descr design_slider_mod">@item.Description</div>
+                <a class="btn_base" href="@item.Button">Details</a>
+            </div>
+        </div>
+
+    }
+
+</div>

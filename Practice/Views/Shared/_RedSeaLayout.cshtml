@@ -1,0 +1,332 @@
+﻿@using Sitecore.Mvc
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Breaking New Ground</title>
+    <link rel="icon" type="image/png" href="~/Assets/images/Red Sea Images/favicon.png">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <link href="~/Assets/css/main_global_v3.css" rel="stylesheet" />
+    <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 150;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            font-size: 1rem;
+            pointer-events: none;
+            background-color: #297f90;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+            .loader.hidden_mod {
+                opacity: 0;
+            }
+
+        .loader_in {
+            margin: auto;
+        }
+
+        .loader_block {
+            position: relative;
+            width: 48em;
+            height: 67.2em;
+        }
+
+        @@media screen and (max-width: 1023px) {
+            .loader_block {
+                font-size: calc(.2vh + .4rem);
+            }
+        }
+
+        .loader_block_in {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .loader_w_logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 48em;
+            height: 22.8em;
+            margin-left: -24em;
+            margin-top: -11.4em;
+            opacity: 0;
+        }
+
+        .loader_img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .loader_block_decor {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+            background-color: #216977;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .loader_block_w_img {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .loader_block_img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+        }
+
+        .loader_block_content {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            text-align: center;
+        }
+
+        /*Font*/
+
+        @@font-face {
+            font-family: 'Open Sans';
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+            src: local('Open Sans'), url('../../fonts/opensans-regular.woff2') format('woff2'), url('../../fonts/opensans-regular.woff') format('woff');
+        }
+        @@font-face {
+            font-family: 'Open Sans';
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+            src: local('Open Sans'), url('../../fonts/opensans-bold.woff2') format('woff2'), url('../../fonts/opensans-bold.woff') format('woff');
+        }
+
+        @@font-face {
+            font-family: 'Playfair Display';
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+            src: local('Playfair Display'), url('../../fonts/playfairdisplay-bold.woff2') format('woff2'), url('../../fonts/playfairdisplay-bold.woff') format('woff');
+        }
+
+        @@font-face {
+            font-family: 'Playfair Display';
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+            src: local('Playfair Display'), url('../../fonts/playfairdisplay-bold.woff2') format('woff2'), url('../../fonts/playfairdisplay-bold.woff') format('woff');
+        }
+
+        @@font-face {
+            font-family: 'Playfair Display';
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+            src: local('Playfair Display'), url('../../fonts/playfairdisplay-regular.woff2') format('woff2'), url('../../fonts/playfairdisplay-regular.woff') format('woff');
+        }
+
+        @@font-face {
+            font-family: 'Tajawal';
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+            src: local('Tajawal'), url('../../fonts/tajawal-regular.woff2') format('woff2'), url('../../fonts/tajawal-regular.woff') format('woff');
+        }
+
+        @@font-face {
+            font-family: 'Tajawal';
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+            src: local('Tajawal'), url('../../fonts/tajawal-bold.woff2') format('woff2'), url('../../fonts/tajawal-bold.woff') format('woff');
+        }
+    </style>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(), event: 'gtm.js',
+            });
+            w[l].push({ 'site_language': 'en' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-N8ZXVJ5');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8ZXVJ5"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="loader">
+        <div class="loader_in">
+            <div class="loader_block">
+                <div class="loader_block_in">
+                    <div class="loader_block_decor"></div>
+                    <div class="loader_w_logo"><img class="loader_logo" src="~/Assets/images/Red Sea Images/i/logo.svg" alt="Logo" /></div>
+                    <div class="loader_block_w_img">
+                        <img loading="lazy" class="loader_block_img" src="~/Assets/images/Red Sea Images/i/preview_1.jpg" alt="Loader Img" />
+                    </div>
+                </div>
+                <div class="loader_block_content">
+                    <h1 class="section_title accent_mod white_mod loader_mod loaderTitle">BREAKING<br>NEW GROUND</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="header home_page_mod">
+        @Html.Sitecore().Placeholder("header");
+    </header>
+
+    <div class="cursor">
+        <div class="btn_hamburger active_mod cursorHamburger">
+            <div class="btn_hamburger_in"><span class="btn_hamburger_decor"></span></div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="scroller_proxy_w_div">
+            <div class="scroller_proxy_div"></div>
+        </div>
+        <div class="base">
+            @Html.Sitecore().Placeholder("heroSlider");
+
+            <section class="section vision_mod visionSection sectionBgTrigger" data-id-color="2">
+
+                @Html.Sitecore().Placeholder("fromVision");
+
+            </section>
+
+            <section class="section map_mod sectionBgTrigger mapSection" data-id-color="2">
+                @Html.Sitecore().Placeholder("gMap");
+            </section>
+
+            <section class="section sectionBgTrigger" id="section_2" data-num="2" data-bg-color="#fff">
+                @Html.Sitecore().Placeholder("designSlider");
+            </section>
+
+            <section class="section no_offset_vertical">
+                @Html.Sitecore().Placeholder("exploreProgress");
+            </section>
+
+
+            <section class="section sectionBgTrigger" data-id-color="1">
+                @Html.Sitecore().Placeholder("socialFeed");
+            </section>
+
+            <section class="section bg_overlay_mod sectionBgTrigger" data-id-color="2">
+                @Html.Sitecore().Placeholder("subNewslatter");
+            </section>
+
+            <footer class="footer">
+
+                @Html.Sitecore().Placeholder("footer");
+
+            </footer>
+        </div>
+    </div>
+    <script src="~/Scripts/js/gsap.min.js"></script>
+    <script src="~/Scripts/js/jquery-2.2.4.min.js"></script>
+    <script src="~/Scripts/js/libs.js"></script>
+    <script src="~/Scripts/js/components_v3.js?id=23"></script>
+    <script src="~/Scripts/js/main_v6.js?v=362"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYOPJ354Tb5orRlGl41irNK4_Ydx1idxY"></script>
+    <script src="~/Scripts/js/map.js"></script>
+    <div class="popup feed_mod socialPopup">
+        <div class="popup_close feed_mod feedClose">
+            <svg class="icon icon-close current_mod size_mod">
+                <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#close"></use>
+            </svg>
+        </div>
+        <div class="popup_in slider_mod">
+            <div class="slider_control prev_mod feed_mod">
+                <svg class="icon icon-left size_mod">
+                    <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#left"></use>
+                </svg>
+            </div>
+            <div class="slider_control next_mod feed_mod">
+                <svg class="icon icon-right size_mod">
+                    <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#right"></use>
+                </svg>
+            </div>
+            <div class="feed_slider"></div>
+        </div>
+    </div>
+    <div class="popup videoPopup">
+        <button class="popup_close btnCloseVideoPopup">
+            <svg class="icon icon-close current_mod size_mod">
+                <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#close"></use>
+            </svg>
+        </button>
+        <video class="popup_video popupVideo" playsinline="" controls="" loop="" autoplay="">
+            <source src="#" type="video/mp4">
+        </video>
+    </div>
+    <div class="popup preview_mod previewPopup">
+        <div class="popup_close previewClose">
+            <svg class="icon icon-close current_mod size_mod">
+                <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#close"></use>
+            </svg>
+        </div>
+        <div class="popup_in preview_mod">
+            <div class="popup_preview">
+                <div class="section_bg"><img class="section_bg_img" src="~/Assets/images/Red Sea Images/i/bg.jpg" loading="lazy" alt="background image" /></div>
+                <div class="section_head limit_v2_mod decor_mod">
+                    <h3 class="section_title white_mod offset_mod">
+                        <span class="section_title_in">from vision</span> to reality
+                    </h3>
+                </div><a class="btn_circle" href="#">Details</a>
+            </div>
+        </div>
+    </div>
+    <div class="popup popupMainVideoW main_video_mod">
+        <button class="popup_close btnClosePopupMainVideo">
+            <svg class="icon icon-close current_mod size_mod">
+                <use xlink:href="~/Assets/images/Red Sea Images/i/sprite/sprite.svg#close"></use>
+            </svg>
+        </button>
+        <div class="popup_video_w" id="popupVideoContainer"></div>
+    </div>
+</body>
+
+</html>

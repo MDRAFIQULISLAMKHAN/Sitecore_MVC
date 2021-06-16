@@ -1,0 +1,90 @@
+﻿@using System.Collections
+@using Microsoft.Ajax.Utilities
+@model List<Practice.Models.FromVisionTab>
+@{ int count = 0;}
+
+
+
+<ul class="phase_nav offset_mod">
+    @foreach (var heder in Model)
+    {
+        if (count == 0)
+        {
+            <li class="phase_nav_item"><a class="phase_nav_link active_tab" href="#" data-tab="@count">@heder.Title</a></li>
+        }
+        else
+        {
+            <li class="phase_nav_item"><a class="phase_nav_link" href="#" data-tab="@count">@heder.Title</a></li>
+        }
+
+        count++;
+    }
+</ul>
+
+@{ count = 0; }
+@foreach (var item in Model)
+{
+    if (count == 0)
+    {
+        <div class="phase_block_w active_tab" data-tab="@count">
+
+            <div class="phase_block">
+                <div class="phase_block_title">
+                    <div class="phase_block_title_in">@item.Description</div>
+                    <div class="phase_block_title_line"></div>
+                </div>
+                <ul class="phase_info_list">
+                    @foreach (var tabItem in item.TabItems)
+                    {
+                        <li class="phase_info_list_item">
+                            <div class="phase_info">
+                                <div class="phase_info_w_icon">
+                                    <img src="@tabItem.Image" />
+                                </div>
+                                <div class="phase_info_content">
+                                    <span class="phase_info_title numberAnimTitle"
+                                          data-text="@tabItem.TotalNo">@tabItem.TotalNo</span><span class="phase_info_subtitle">@tabItem.Title</span>
+                                </div>
+                            </div>
+                        </li>
+                    }
+
+
+                </ul>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="phase_block_w" data-tab="@count">
+
+            <div class="phase_block">
+                <div class="phase_block_title">
+                    <div class="phase_block_title_in">@item.Description</div>
+                    <div class="phase_block_title_line"></div>
+                </div>
+                <ul class="phase_info_list">
+                    @foreach (var tabItem in item.TabItems)
+                    {
+                        <li class="phase_info_list_item">
+                            <div class="phase_info">
+                                <div class="phase_info_w_icon">
+                                    <img src="@tabItem.Image" />
+                                </div>
+                                <div class="phase_info_content">
+                                    <span class="phase_info_title numberAnimTitle"
+                                          data-text="@tabItem.TotalNo">@tabItem.TotalNo</span><span class="phase_info_subtitle">@tabItem.Title</span>
+                                </div>
+                            </div>
+                        </li>
+                    }
+
+
+                </ul>
+            </div>
+        </div>
+    }
+
+    count++;
+
+}

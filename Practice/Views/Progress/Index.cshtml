@@ -1,0 +1,140 @@
+﻿@model List<Practice.Models.ProgressModel>
+@{ int count = 2;}
+
+<div class="section_in v2_mod" id="section_3" data-num="3">
+    @foreach (var item in Model)
+    {
+        if (count % 2 == 0)
+        {
+            <div class="preview_item fadeEl sectionBgTrigger previewBlock" data-id-color="2" data-anim-direction="left">
+                <div class="preview_sm_img parallaxBlock" data-offset="100">
+                    <img class="preview_img active_mod"
+                         src="@item.FirstImage" loading="lazy" alt="image" />
+                    <img class="preview_img"
+                         src="@item.SecoundImage" loading="lazy" alt="image" />
+                </div>
+                <div class="preview_col img_mod">
+                    <div class="preview_img_wrap previewImgBlock">
+                        <div class="preview_img_in parallaxBlock" data-offset="-25">
+                            <img class="preview_img active_mod"
+                                 src="@item.SecoundImage" loading="lazy" alt="image" />
+                            <img class="preview_img"
+                                 src="@item.FirstImage" loading="lazy" alt="image" />
+                        </div>
+                    </div>
+                </div>
+                <div class="preview_col content_mod">
+                    <div class="preview_col_in previewContentBlock">
+                        <div class="section_head">
+                            <h3 class="section_title offset_v2_mod preview_mod">
+                                <span class="title_in">
+                                   @item.Title
+                                </span>@item.SubTitle
+                            </h3>
+                        </div>
+                        <div class="section_w_descr">
+                            <div class="preview_text sectionDescr btnPreviewControl" data-preview-id="1">
+                                @item.TitleDescription
+                            </div>
+                        </div><a class="preview_link" href="@item.Details">Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="tabs_block sectionBgTrigger" id="section_4" data-num="4" data-bg-color="#fff">
+                <!-- <div class="tabs_list fadeEl">
+                    <div class="tab_link active_tab" data-tab="0">ENVIRONMENTAL</div>
+                    <div class="tab_link" data-tab="1">SOCIO-ECONOMIC</div>
+                </div> -->
+                <div class="tabs_content_wrap">
+                    <div class="tab_content active_tab" data-tab="0">
+                        <div class="preview_item fadeEl previewBlock" data-id-color="">
+                            <div class="preview_sm_img parallaxBlock" data-offset="-100">
+                                <img class="preview_img active_mod"
+                                     src="@item.SecoundImage" loading="lazy" alt="image" />
+                                <img class="preview_img"
+                                     src="@item.FirstImage" loading="lazy" alt="image" />
+                            </div>
+                            <div class="preview_col img_mod">
+                                <div class="preview_img_wrap previewImgBlock">
+                                    <div class="preview_img_in parallaxBlock" data-offset="15">
+                                        <img class="preview_img active_mod"
+                                             src="@item.FirstImage" loading="lazy" alt="image" />
+                                        <img class="preview_img"
+                                             src="@item.SecoundImage" loading="lazy" alt="image" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="preview_col content_mod">
+                                <div class="preview_col_in previewContentBlock">
+                                    <div class="section_head">
+                                        <h3 class="section_title offset_v2_mod preview_mod">
+                                            <span class="title_in">
+                                                @item.Title
+                                            </span>@item.SubTitle
+                                        </h3>
+                                    </div>
+                                    <div class="section_w_descr">
+                                        <div class="preview_text sectionDescr btnPreviewControl" data-preview-id="2">
+                                            @item.TitleDescription
+                                        </div>
+                                    </div><a class="preview_link" href="@item.Details">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="tab_content" data-tab="1">
+                            <div class="preview_item fadeEl previewBlock" data-id-color="">
+                                <div class="preview_sm_img" data-offset="">
+                                    <img class="preview_img active_mod"
+                                         src="i/Microsite_pic/Construction_Image_2.jpg" loading="lazy" alt="image" />
+                                    <img class="preview_img"
+                                         src="i/Microsite_pic/Construction_Image_3.jpg" loading="lazy" alt="image" />
+                                </div>
+                                <div class="preview_col img_mod">
+                                    <div class="preview_img_wrap previewImgBlock">
+                                        <div class="preview_img_in" data-offset="">
+                                            <img class="preview_img active_mod"
+                                                 src="i/Microsite_pic/Construction_Image_3.jpg" loading="lazy" alt="image" />
+                                            <img class="preview_img"
+                                                 src="i/Microsite_pic/Construction_Image_2.jpg" loading="lazy" alt="image" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="preview_col content_mod">
+                                    <div class="preview_col_in previewContentBlock">
+                                        <div class="section_head">
+                                            <h3 class="section_title offset_v2_mod preview_mod">
+                                                <span class="title_in">
+                                                    Explore our progress
+                                                    on
+                                                </span>Construction
+                                            </h3>
+                                        </div>
+                                        <div class="section_w_descr">
+                                            <div class="preview_text sectionDescr btnPreviewControl" data-preview-id="3">
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                                </p>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                                </p>
+                                            </div>
+                                        </div><a class="preview_link" href="https://visiontoreality.theredsea.sa/sub_domain_pages/constructions_en.html">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+            count++;
+        }
+
+    }
+
+
+</div>
